@@ -8,7 +8,7 @@ public class TesteArray {
 
 		Scanner leitor = new Scanner(System.in);
 
-		int escolha = 0;
+		String escolha;
 		String cores[] = new String[10];
 
 		cores[0] = "azul";
@@ -23,17 +23,23 @@ public class TesteArray {
 		cores[9] = "lilas";
 
 		System.out.println("Digite uma cor: ");
-		escolha = leitor.nextInt();
+		escolha = leitor.next();
+		leitor.close();
 
-		while (escolha <= cores.length) {
-			
-			if (escolha >= cores.length) {
+		Boolean encontrei = true;
+
+		for (int i = 0; i < cores.length; i++) {
+
+			if (escolha.equalsIgnoreCase(cores[i])) {
+				System.out.println("Temos essa cor.");
+				encontrei = true;
+				break;
+			}
+			if (encontrei ) {
 				System.out.println("temos essa cor.");
+			}else {
+				System.out.println("não temos essa cor");
 			}
-			else{
-				System.out.println("não temos essa cor.");
-			}
-			escolha++;
 
 		}
 	}
